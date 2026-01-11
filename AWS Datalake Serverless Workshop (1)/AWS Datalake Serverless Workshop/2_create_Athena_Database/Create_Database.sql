@@ -1,0 +1,2 @@
+Create database raw_zone
+Create database serving_zone
