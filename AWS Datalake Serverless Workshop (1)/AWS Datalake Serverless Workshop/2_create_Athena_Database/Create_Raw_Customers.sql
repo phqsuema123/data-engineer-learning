@@ -1,4 +1,4 @@
-CREATE EXTERNAL TABLE  demo_raw_zone.customers(
+CREATE EXTERNAL TABLE  raw_zone.customers(
   customerid string, 
   companyname string, 
   contactname string, 
@@ -15,4 +15,4 @@ WITH SERDEPROPERTIES (
   'serialization.format' = '1'
 )
 LOCATION
-  's3://ijdhad-mydemo/raw_zone/customers/'
+  's3://rukndi-mydeom/raw_zone/customers/'

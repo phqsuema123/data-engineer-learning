@@ -8,13 +8,13 @@ athena_client = boto3.client('athena', region_name='ap-southeast-1')
 year = '1998'
 month = '199805'
 day = '19980506'
-database = 'demo_raw_zone'
+database = 'raw_zone'
 query_string = """
         CREATE TABLE demo_temp_zone.orders_{2}
         WITH (
           format = 'PARQUET',
           parquet_compression = 'SNAPPY',
-          external_location = 's3://ijdhad-mydemo/raw_zone/orders/{0}/{1}/{2}'
+          external_location = 's3://rukndi-mydeom/raw_zone/orders/{0}/{1}/{2}'
         )
         AS
         SELECT
@@ -36,10 +36,10 @@ query_string = """
         '{1}' AS month,
         '{2}' AS day
         FROM
-          demo_landing_zone.orders;
-        ALTER TABLE demo_raw_zone.orders
+          landing_zone.orders;
+        ALTER TABLE raw_zone.orders
         ADD PARTITION (year='{0}', month='{1}', day='{2}')
-        LOCATION 's3://ijdhad-mydemo/raw_zone/orders/{0}/{1}/{2}/';
+        LOCATION 's3://rukndi-mydeom/raw_zone/orders/{0}/{1}/{2}/';
         DROP TABLE demo_temp_zone.orders_{2}
         """.format(year,month,day)
 
@@ -52,7 +52,7 @@ for query in query_list:
           'Database': database
       },
       ResultConfiguration={
-          'OutputLocation': 's3://ijdhad-mydemo/glue'
+          'OutputLocation': 's3://rukndi-mydeom/glue'
       }
     )
   query_execution_id = response['QueryExecutionId']

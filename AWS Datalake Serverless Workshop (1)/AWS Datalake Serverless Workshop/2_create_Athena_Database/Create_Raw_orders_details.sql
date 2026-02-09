@@ -1,4 +1,4 @@
-CREATE External TABLE  demo_raw_zone.orders_details (
+CREATE External TABLE raw_zone.orders_details (
   orderid bigint, 
   productid bigint, 
   unitprice double, 
@@ -9,4 +9,4 @@ WITH SERDEPROPERTIES (
   'serialization.format' = '1'
 )
 LOCATION
-  's3://ijdhad-mydemo/raw_zone/orders_details/'
+  's3://rukndi-mydeom/raw_zone/orders_details/'

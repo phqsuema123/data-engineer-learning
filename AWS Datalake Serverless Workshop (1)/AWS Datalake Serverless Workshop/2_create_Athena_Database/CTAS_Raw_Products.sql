@@ -2,7 +2,7 @@ CREATE TABLE demo_temp_zone.products
 WITH (
   format = 'PARQUET',
   parquet_compression = 'SNAPPY',
-  external_location = 's3://ijdhad-mydemo/raw_zone/products'
+  external_location = 's3://rukndi-mydeom/raw_zone/products'
 )
 AS
 SELECT
@@ -17,6 +17,6 @@ SELECT
   reorderlevel, 
   discontinued
 FROM
-  demo_landing_zone.products
+  landing_zone.products
 
 drop table  demo_temp_zone.products

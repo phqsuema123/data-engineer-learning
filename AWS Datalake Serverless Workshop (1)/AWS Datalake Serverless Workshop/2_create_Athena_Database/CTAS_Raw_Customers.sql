@@ -18,6 +18,6 @@ SELECT
   phone , 
   fax
 FROM
-  demo_landing_zone.customers
+  demo_landing_zone.customers;
 
-drop table demo_temp_zone.customers
+drop table demo_temp_zone.customers;

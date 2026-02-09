@@ -2,7 +2,7 @@ CREATE TABLE demo_temp_zone.categories
 WITH (
   format = 'PARQUET',
   parquet_compression = 'SNAPPY',
-  external_location = 's3://ijdhad-mydemo/raw_zone/categories'
+  external_location = 's3://rukndi-mydeom/raw_zone/categories'
 )
 AS
 SELECT

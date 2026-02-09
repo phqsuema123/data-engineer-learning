@@ -29,6 +29,6 @@ FROM
 
 ALTER TABLE demo_raw_zone.orders
 ADD PARTITION (year='1998', month='199805', day='19980505')
-LOCATION 's3://ijdhad-mydemo/raw_zone/orders/1998/199805/19980505';
+LOCATION 's3://rukndi-mydeom/raw_zone/orders/1998/199805/19980505';
 
 drop table demo_temp_zone.orders

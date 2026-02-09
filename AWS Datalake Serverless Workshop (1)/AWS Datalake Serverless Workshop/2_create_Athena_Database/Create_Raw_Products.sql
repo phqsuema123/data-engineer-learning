@@ -1,4 +1,4 @@
-CREATE EXTERNAL TABLE  demo_raw_zone.products(
+CREATE EXTERNAL TABLE raw_zone.products(
   productid bigint, 
   productname string, 
   supplierid bigint, 
@@ -14,4 +14,4 @@ WITH SERDEPROPERTIES (
   'serialization.format' = '1'
 )
 LOCATION
-  's3://ijdhad-mydemo/raw_zone/products/'
+  's3://rukndi-mydeom/raw_zone/products/'

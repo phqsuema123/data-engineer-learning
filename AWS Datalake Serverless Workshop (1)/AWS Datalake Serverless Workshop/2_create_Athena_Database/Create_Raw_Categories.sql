@@ -1,4 +1,4 @@
-CREATE EXTERNAL TABLE demo_raw_zone.categories(
+CREATE EXTERNAL TABLE raw_zone.categories(
   categoryid bigint, 
   categoryname string, 
   description string, 
@@ -8,4 +8,4 @@ WITH SERDEPROPERTIES (
   'serialization.format' = '1'
 )
 LOCATION
-   's3://ijdhad-mydemo/raw_zone/categories/'
+   's3://rukndi-mydeom/raw_zone/categories/'

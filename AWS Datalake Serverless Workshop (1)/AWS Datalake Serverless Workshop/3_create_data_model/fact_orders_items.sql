@@ -1,4 +1,4 @@
-  create view demo_serving_zone.vw_fact_orders_items as
+  create view serving_zone.vw_fact_orders_items as
   SELECT
   o.orderid, 
   customerid , 
@@ -18,5 +18,5 @@
   od.unitprice, 
   od.quantity, 
   od.discount
-  from  demo_raw_zone.orders o
-  left join demo_raw_zone.orders_details od on o.orderid = od.orderid
+  from   raw_zone.orders_details od
+  left join raw_zone.orders o  on o.orderid = od.orderid

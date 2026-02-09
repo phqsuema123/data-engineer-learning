@@ -1,4 +1,4 @@
-CREATE EXTERNAL TABLE  demo_raw_zone.suppliers(
+CREATE EXTERNAL TABLE  raw_zone.suppliers(
   supplierid bigint, 
   companyname string, 
   contactname string, 
@@ -16,4 +16,4 @@ WITH SERDEPROPERTIES (
   'serialization.format' = '1'
 )
 LOCATION
-  's3://ijdhad-mydemo/raw_zone/suppliers/'
+  's3://rukndi-mydeom/raw_zone/suppliers/'

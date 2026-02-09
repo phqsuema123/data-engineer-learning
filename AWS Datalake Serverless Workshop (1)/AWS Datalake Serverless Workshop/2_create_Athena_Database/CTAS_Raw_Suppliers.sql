@@ -2,7 +2,7 @@ CREATE TABLE demo_temp_zone.suppliers
 WITH (
   format = 'PARQUET',
   parquet_compression = 'SNAPPY',
-  external_location = 's3://ijdhad-mydemo/raw_zone/suppliers'
+  external_location = 's3://rukndi-mydeom/raw_zone/suppliers'
 )
 AS
 SELECT
@@ -19,6 +19,6 @@ SELECT
   fax, 
   homepage
 FROM
- demo_landing_zone.suppliers
+ landing_zone.suppliers
 
 drop table  demo_temp_zone.suppliers
