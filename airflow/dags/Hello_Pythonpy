@@ -1,0 +1,43 @@
+from airflow import DAG
+from airflow.operators.python_operator import PythonOperator
+from datetime import datetime
+
+def say_hello(task_name):
+    print(f"Hello from {task_name}!")
+
+default_args = {
+    'owner': 'your_name',
+    'start_date': datetime(2023, 1, 1),
+}
+
+dag = DAG('my_dag2', default_args=default_args, schedule_interval=None)
+
+task1 = PythonOperator(
+    task_id='task1',
+    python_callable=say_hello,
+    op_args=['task1'],
+    dag=dag,
+)
+
+task2 = PythonOperator(
+    task_id='task2',
+    python_callable=say_hello,
+    op_args=['task2'],
+    dag=dag,
+)
+
+task3 = PythonOperator(
+    task_id='task3',
+    python_callable=say_hello,
+    op_args=['task3'],
+    dag=dag,
+)
+
+task4 = PythonOperator(
+    task_id='task4',
+    python_callable=say_hello,
+    op_args=['task4'],
+    dag=dag,
+)
+
+task1 >> task2 >> [task3, task4]

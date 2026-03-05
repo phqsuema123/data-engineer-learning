@@ -1,0 +1,47 @@
+[2026-03-05T15:18:48.660+0000] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2026-03-05T15:18:48.682+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: My_Producer.update_my_data manual__2026-03-05T15:18:46.254989+00:00 [queued]>
+[2026-03-05T15:18:48.692+0000] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: My_Producer.update_my_data manual__2026-03-05T15:18:46.254989+00:00 [queued]>
+[2026-03-05T15:18:48.693+0000] {taskinstance.py:2306} INFO - Starting attempt 1 of 1
+[2026-03-05T15:18:48.706+0000] {taskinstance.py:2330} INFO - Executing <Task(_PythonDecoratedOperator): update_my_data> on 2026-03-05 15:18:46.254989+00:00
+[2026-03-05T15:18:48.713+0000] {warnings.py:112} WARNING - /home/***/.local/lib/python3.12/site-packages/***/task/task_runner/standard_task_runner.py:62: DeprecationWarning: This process (pid=206) is multi-threaded, use of fork() may lead to deadlocks in the child.
+  pid = os.fork()
+
+[2026-03-05T15:18:48.715+0000] {standard_task_runner.py:64} INFO - Started process 208 to run task
+[2026-03-05T15:18:48.715+0000] {standard_task_runner.py:90} INFO - Running: ['***', 'tasks', 'run', 'My_Producer', 'update_my_data', 'manual__2026-03-05T15:18:46.254989+00:00', '--job-id', '12', '--raw', '--subdir', 'DAGS_FOLDER/my_producer.py', '--cfg-path', '/tmp/tmptmfxbzgt']
+[2026-03-05T15:18:48.717+0000] {standard_task_runner.py:91} INFO - Job 12: Subtask update_my_data
+[2026-03-05T15:18:48.765+0000] {task_command.py:426} INFO - Running <TaskInstance: My_Producer.update_my_data manual__2026-03-05T15:18:46.254989+00:00 [running]> on host 12e1a1cbc7da
+[2026-03-05T15:18:48.832+0000] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='***' AIRFLOW_CTX_DAG_ID='My_Producer' AIRFLOW_CTX_TASK_ID='update_my_data' AIRFLOW_CTX_EXECUTION_DATE='2026-03-05T15:18:46.254989+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='manual__2026-03-05T15:18:46.254989+00:00'
+[2026-03-05T15:18:48.834+0000] {taskinstance.py:430} INFO - ::endgroup::
+[2026-03-05T15:18:48.835+0000] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2026-03-05T15:18:48.837+0000] {taskinstance.py:2905} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 465, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/taskinstance.py", line 432, in _execute_callable
+    return execute_callable(context=context, **execute_callable_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/decorators/base.py", line 265, in execute
+    return_value = super().execute(context)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/models/baseoperator.py", line 401, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 235, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.12/site-packages/airflow/operators/python.py", line 252, in execute_callable
+    return self.python_callable(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/airflow/dags/my_producer.py", line 15, in update_my_data
+    with open(my_data.uri, "a+") as f:
+         ^^^^^^^^^^^^^^^^^^^^^^^
+FileNotFoundError: [Errno 2] No such file or directory: '/home/ec2-user/airflow/dags/data/trigger.txt'
+[2026-03-05T15:18:48.850+0000] {taskinstance.py:1206} INFO - Marking task as FAILED. dag_id=My_Producer, task_id=update_my_data, run_id=manual__2026-03-05T15:18:46.254989+00:00, execution_date=20260305T151846, start_date=20260305T151848, end_date=20260305T151848
+[2026-03-05T15:18:48.860+0000] {standard_task_runner.py:110} ERROR - Failed to execute job 12 for task update_my_data ([Errno 2] No such file or directory: '/home/ec2-user/airflow/dags/data/trigger.txt'; 208)
+[2026-03-05T15:18:48.890+0000] {local_task_job_runner.py:243} INFO - Task exited with return code 1
+[2026-03-05T15:18:48.904+0000] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2026-03-05T15:18:48.908+0000] {local_task_job_runner.py:222} INFO - ::endgroup::
